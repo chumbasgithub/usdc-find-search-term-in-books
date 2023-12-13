@@ -19,13 +19,28 @@
  * @returns {JSON} - Search results.
  * */ 
  function findSearchTermInBooks(searchTerm, scannedTextObj) {
+
+    //console.log(scannedTextObj);
     /** You will need to implement your search and 
      * return the appropriate object here. */
+    let myFind = JSON.stringify(scannedTextObj[0].Content);
+    let myLine= JSON.parse(myFind);
+    console.log(myLine[1].Text);
+    for (const x in myLine){
+        for (let i in myLine[x].Text){
+            if (searchTerm === myLine[x].Text[i]){
+                console.log(searchTerm);
+                } else {
+                    console.log("not equal");
+                }
+        }
+        
+    }
 
     var result = {
         "SearchTerm": "",
         "Results": []
-    };
+    }
     
     return result; 
 }
